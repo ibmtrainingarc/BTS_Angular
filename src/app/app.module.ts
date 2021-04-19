@@ -6,13 +6,15 @@ import { HeaderComponent } from './header/header.component';
 import { BugFormComponent } from './bug-form/bug-form.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchbugComponent } from './searchbug/searchbug.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     BugFormComponent,
-    FooterComponent
+    FooterComponent,
+    SearchbugComponent
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="searchbug.component.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h3>{{title}}</h3>
+  <div class='jumbotron'>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="BugName">SEARCH BUG HERE</label>
+        </div>
+        <div class="form-group col-md-3">
+          <select [(ngModel)]='bug.status' name='input2' id="Status" >
+            <option selected>Choose...</option>
+            <option value="NEW">NEW</option>
+            <option value="ASSIGNED">ASSIGNED</option>
+            <option value="OPEN">OPEN</option>
+            <option value="CLOSED">CLOSED</option>
+            <option value="VERIFIED">VERIFIED</option>
+            <option value="DEFERRED">DEFERRED</option>
+            <option value="NOT_A_BUG">NOT_A_BUG</option>
+            <option value="REOPEN">REOPEN</option>
+            <option value="RETEST">RETEST</option>
+            <option value="REJECTED">REJECTED</option>
+            <option value="PENDING_RETEST">PENDING_RETEST</option>
+            <option value="DUPLICATE">DUPLICATE</option>
+            <option value="DEFECT">DEFECT</option>
+            <option value="WORK_IN_PROGRESS">WORK_IN_PROGRESS</option>
+            <option value="ISSUE">ISSUE</option>
+            <option value="FIXED">FIXED</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <button (click)='getStatus(bug.status)' class="btn btn-primary" type="submit">Search by Status</button>
+        </div>
+         <div class="form-group col-md-3">
+          <input [(ngModel)]= 'bug.name' name='input1' type="text" placeholder="Enter bug name">
+        </div>
+        <div class="form-group col-md-2">
+          <button (click)='getBugs(bug.name)' class="btn btn-primary" type="submit">Search by Name</button>
+        </div>
+
+      </div>
+    </form>
+    <table id="bugger">
+
+      <th>name</th>
+      <th>status</th>
+      <th>priority</th>
+      <th>severity</th>
+      <th>type</th>
+      <th>submittedOn</th>
+      <th>eta</th>
+      <th>module</th>
+      <th>projectId</th>
+      <th>description</th>
+      <th>synopsis</th>
+
+      <tbody>
+        <tr *ngFor='let bug of bugArray; index as i'>
+          <td>{{bug.name}}</td>
+          <td>{{bug.status}}</td>
+          <td>{{bug.priority}}</td>
+          <td>{{bug.severity}}</td>
+          <td>{{bug.type}}</td>
+          <td>{{bug.submittedOn}}</td>
+          <td>{{bug.eta}}</td>
+          <td>{{bug.module}}</td>
+          <td>{{bug.projectId}}</td>
+          <td>{{bug.description}}</td>
+          <td>{{bug.synopsis}}</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</body>
+</html>
