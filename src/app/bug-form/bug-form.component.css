@@ -1,0 +1,23 @@
+h1 {
+  color: darkslategray;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+#container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: #2f5d62;
+}
+
+#createBug {
+  font-size: 15px;
+}
+
+.btn.btn-primary {
+  height: 50px;
+  text-align: center;
+  width: 200px;
+}

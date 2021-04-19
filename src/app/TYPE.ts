@@ -1,0 +1,3 @@
+export enum TYPE{
+  FUNCTIONAL,LOOP,RUNTIME,LOGICAL
+}
