@@ -12,18 +12,32 @@ export class SearchbugComponent implements OnInit {
   title:String="SEARCH BUG";
   bug:Bug = new Bug();
   bugArray:any;
+  bugResult:any;
   constructor(private bugService:BugService ) {}
   getBugs(name:String){
     const observable=this.bugService.getBugs(name);
-    observable.subscribe(response=>{console.log(response);
-      this.bugArray=response});
-
+    observable.subscribe(response=>
+      {console.log(response);
+      this.bugArray=response;
+      if(this.bugArray[0]==null){
+        return alert("No bug with name "+ name + " is found")
+      }
+      else
+      return alert("Bug found. Fetching bug(s).......")
+    });
   }
 
   getStatus(status:STATUS){
     const observable=this.bugService.getStatus(status);
     observable.subscribe(response=>{console.log(response);
-      this.bugArray=response});
+      this.bugArray=response;
+      if(this.bugArray[0]==null){
+        return alert("No bug with status "+ status + " is found")
+      }
+      else
+      return alert("Bug found. Fetching bug(s)......")
+
+    });
 
   }
 

@@ -71,8 +71,8 @@
           <td>{{bug.priority}}</td>
           <td>{{bug.severity}}</td>
           <td>{{bug.type}}</td>
-          <td>{{bug.submittedOn}}</td>
-          <td>{{bug.eta}}</td>
+          <td>{{bug.submittedOn | date: 'd/M/yy'}}</td>
+          <td>{{bug.eta | date: 'd/M/yy'}}</td>
           <td>{{bug.module}}</td>
           <td>{{bug.projectId}}</td>
           <td>{{bug.description}}</td>
