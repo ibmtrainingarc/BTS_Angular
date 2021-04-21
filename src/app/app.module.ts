@@ -9,11 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchbugComponent } from './searchbug/searchbug.component';
 import {Routes, RouterModule} from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
+import { UpdateComponent } from './update/update.component';
 
 const appRoutes:Routes=[
   {path: 'createBug', component:BugFormComponent},
   {path: 'search', component:SearchbugComponent},
   {path: 'contact', component:ContactComponent},
+  {path: 'update' , component:UpdateComponent},
 ];
 
 
@@ -24,7 +26,8 @@ const appRoutes:Routes=[
     BugFormComponent,
     FooterComponent,
     SearchbugComponent,
-    ContactComponent
+    ContactComponent,
+    UpdateComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,

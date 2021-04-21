@@ -29,4 +29,10 @@ export class BugService {
   getStatus(status:STATUS){
     return this.http.get('http://localhost:8080/bug/status/'+status);
   }
+
+  update(bug:Bug,bugId:String){
+    return this.http.put('http://localhost:8080/bug/'+bugId,bug,{
+      headers: {"content-type": 'application/json' }
+    });
+  }
 }
