@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Bug } from '../Bug';
 import { BugService } from '../bug.service';
 
@@ -8,46 +8,68 @@ import { BugService } from '../bug.service';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  title:String ="UPDATE BUG";
-  bug:Bug=new Bug();
-bugResult:any;
-  bugArray:Bug[]=[];
-  name: string ='';
-  constructor(private bugService:BugService) { }
-  update()
-  {const promise = this.bugService.update(this.bug,this.bug.id);
-     promise.subscribe((response: any)=> {
-    console.log(response);
-    alert('Bug added..')
 
-  },
-    (  error: { ok: any; })=> {
-    console.log(error);
-    if(!error.ok)
-
-    alert('error Happened')
-  })
-
-}
-
-getBugs() {
-  // if (!this.bug.name.trim()) {
-  //   alert("Please provide bug name");
-  // }
-
-    const promise = this.bugService.update(this.bug, this.bug.id);
-    promise.subscribe(response => {
-      console.log(response);
-      alert('Bug Updated..')
-    },
-      error => {
-        console.log(error);
-        if (!error.ok)
-          alert("Error !! : " + error.headers.get("error"))
-      })
+  title:String="UPDATE BUG";
+  bug: Bug = new Bug();
+  bugList: any;
+  constructor(private bugService: BugService) { }
+  getBugName() {
+    let endpointURL = 'http://localhost:8080/bug/';
+    let bugName = (<HTMLInputElement>document.getElementById('bugName')).value;
+    if (bugName) {
+      endpointURL = endpointURL + 'name/' + bugName;
+      const promise = this.bugService.getBug(endpointURL);
+      promise.subscribe(response => {
+        this.bugList = [response];
+        console.log(this.bugList);
+        if (this.bugList) {
+          this.bug = this.bugList;
+        }
+        else {
+          alert("Given Bug with title " + bugName + " does not exist");
+        }
+      },
+        error => {
+          console.log(error);
+          alert(error.statusText);
+        }
+      )
+    }
   }
 
+  updateBug() {
+  let updateBug = (<HTMLInputElement>document.getElementById('updateBug'))
+    if (!updateBug.checkValidity()) {
+      alert('Form is invalid');
+      return;
+    }
+    let bugId = (<HTMLInputElement>document.getElementById('bugId')).value
+    const updatedBody = {
+      bugId: (<HTMLInputElement>document.getElementById('bugId')).value,
+      name: (<HTMLInputElement>document.getElementById('bugName')).value,
+      description: (<HTMLInputElement>document.getElementById('desc')).value,
+      priority: (<HTMLInputElement>document.getElementById('Priority')).value,
+      status: (<HTMLInputElement>document.getElementById('Status')).value,
+      type: (<HTMLInputElement>document.getElementById('Type')).value,
+      projectId: (<HTMLInputElement>document.getElementById('project')).value,
+      module: (<HTMLInputElement>document.getElementById('module')).value,
+      eta: (<HTMLInputElement>document.getElementById('etadate')).value,
+    }
 
+    this.bugService.updateBug(bugId, updatedBody).subscribe(
+      response => {
+        console.log(response);
+        alert("Bug updated....");
+      },
+      error => {
+        console.log(error);
+        alert(error.statusText);
+
+      }
+    )
+
+
+  }
 
   ngOnInit(): void {
   }
