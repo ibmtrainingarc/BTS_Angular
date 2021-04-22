@@ -10,12 +10,14 @@ import { SearchbugComponent } from './searchbug/searchbug.component';
 import {Routes, RouterModule} from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const appRoutes:Routes=[
   {path: 'createBug', component:BugFormComponent},
   {path: 'search', component:SearchbugComponent},
   {path: 'contact', component:ContactComponent},
   {path: 'update' , component:UpdateComponent},
+  {path: 'home', component:HomepageComponent}
 ];
 
 
@@ -27,7 +29,8 @@ const appRoutes:Routes=[
     FooterComponent,
     SearchbugComponent,
     ContactComponent,
-    UpdateComponent
+    UpdateComponent,
+    HomepageComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
