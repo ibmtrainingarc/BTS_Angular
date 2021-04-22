@@ -36,6 +36,10 @@ export class BugService {
     return this.http.put(endpointURL, updatedBody);
   }
 
+  delete(bugId:String ){
+    return this.http.delete(URL+'/'+bugId);
+  }
+
   getBug(URL:any) {
 
     const httpHeaders = new HttpHeaders();
