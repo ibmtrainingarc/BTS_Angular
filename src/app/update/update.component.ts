@@ -20,7 +20,7 @@ export class UpdateComponent implements OnInit {
       endpointURL = endpointURL + 'name/' + bugName;
       const promise = this.bugService.getBug(endpointURL);
       promise.subscribe(response => {
-        this.bugList = [response];
+        this.bugList = response;
         console.log(this.bugList);
         if (this.bugList) {
           this.bug = this.bugList;
@@ -31,10 +31,11 @@ export class UpdateComponent implements OnInit {
       },
         error => {
           console.log(error);
-          alert(error.statusText);
+          alert("Error Happened");
         }
       )
     }
+    else{alert('Enter a valid name')}
   }
 
   updateBug() {
@@ -63,7 +64,7 @@ export class UpdateComponent implements OnInit {
       },
       error => {
         console.log(error);
-        alert(error.statusText);
+        alert("Error Happened");
 
       }
     )
