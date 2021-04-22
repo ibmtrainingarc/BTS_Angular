@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  ImgPath:String= ("./assets/img/bug2.jpg");
+  ImgPath:String= ("./assets/img/bug3.jpg");
   constructor() { }
 
   ngOnInit(): void {
