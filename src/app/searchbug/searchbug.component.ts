@@ -15,7 +15,7 @@ export class SearchbugComponent implements OnInit {
   bugResult:any;
   constructor(private bugService:BugService ) {}
   getBugs(name:String){
-    const observable=this.bugService.getBugs(name);
+    const observable=this.bugService.getBugByPartialName(name);;
     observable.subscribe(response=>
       {console.log(response);
       this.bugArray=response;
