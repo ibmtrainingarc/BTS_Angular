@@ -10,7 +10,7 @@ export class Bug{
   priority:PRIORITY=PRIORITY.LOW;
   severity:SEVERITY=SEVERITY.LOW;
   type:TYPE=TYPE.FUNCTIONAL;
-  submittedOn='';
+  submittedOn:Date=new Date();
   eta='';
   module:String='';
   projectId:String='';

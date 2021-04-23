@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Bug } from '../Bug';
 import { BugService } from '../bug.service';

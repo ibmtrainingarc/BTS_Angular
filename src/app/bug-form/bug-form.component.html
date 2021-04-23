@@ -23,12 +23,12 @@
             <label for="BugName">Name<span style="color: red">*</span></label>
             <span class="pull-right-char"
               ><em
-                >&nbsp;&nbsp;({{ 20 - bug.name.length }} characters left)</em
+                >&nbsp;&nbsp;({{ 30 - bug.name.length }} characters left)</em
               ></span
             >
             <input
               [(ngModel)]="bug.name"
-              maxlength="10"
+              maxlength="30"
               name="input1"
               type="text"
               class="form-control"
