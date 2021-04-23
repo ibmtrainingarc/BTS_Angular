@@ -42,6 +42,10 @@ export class SearchbugComponent implements OnInit {
   }
 
   deleteBug(id:String, index:number){
+    let ask = confirm("Please confirm for deletion: " + id);
+    if (!ask) {
+      return;
+    }
     const observable = this.bugService.delete(id);
     observable.subscribe(response=>{ this.bugArray.splice(index,1);alert("Bug deleted...")})
   }

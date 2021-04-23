@@ -31,7 +31,7 @@ export class BugService {
     return this.http.get('http://localhost:8080/bug/status/'+status);
   }
 
-  updateBug(bugId:String, updatedBody:any) {
+  updateBug(bugId:any, updatedBody:any) {
     const endpointURL = 'http://localhost:8080/bug/' + bugId;
     return this.http.put(endpointURL, updatedBody);
   }
@@ -40,11 +40,11 @@ export class BugService {
     return this.http.delete(URL+'/'+bugId);
   }
 
-  getBug(URL:any) {
+  // getBug() {
+  //   const httpHeaders = new HttpHeaders();
+  //   const endpointURL = 'http://localhost:8080/bug/'
+  //   httpHeaders.append('content-type', 'application/json');
+  //   return this.http.get(endpointURL, { headers: httpHeaders });
 
-    const httpHeaders = new HttpHeaders();
-    httpHeaders.append('content-type', 'application/json');
-    return this.http.get(URL, { headers: httpHeaders });
-
-  }
+  // }
 }

@@ -15,7 +15,7 @@
   </head>
 
   <body id="bod">
-    <h1>{{ title }}</h1>
+    <h3>{{ title }}</h3>
     <div class="jumbotron" id="container">
       <form id="createBug">
         <div class="form-row">
@@ -102,17 +102,27 @@
         </div>
         <div class="form-row">
 
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="date">Estimated Time</label>
             <input
               [(ngModel)]="bug.eta"
               name="input7"
               type="date"
               class="form-control"
+              id="date1"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="date">Date Submitted</label>
+            <input
+              [(ngModel)]="bug.submittedOn"
+              name="input20"
+              type="date"
+              class="form-control"
               id="date2"
             />
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="mod">Module</label>
             <input
               [(ngModel)]="bug.module"
@@ -162,10 +172,10 @@
               class="form-control"
               id="desc"
               rows="3"
-              maxlength="30"
+              maxlength="100"
             ></textarea>
             <span class="pull-right char"
-              ><em>{{ 30 - bug.description.length }} characters left</em></span
+              ><em>{{ 100 - bug.description.length }} characters left</em></span
             >
           </div>
           <div class="form-group col-md-6">
@@ -176,10 +186,10 @@
               class="form-control"
               id="syn"
               rows="3"
-              maxlength="50"
+              maxlength="100"
             ></textarea>
             <span class="pull-right char"
-              ><em>{{ 50 - bug.synopsis.length }} characters left</em></span
+              ><em>{{ 100 - bug.synopsis.length }} characters left</em></span
             >
           </div>
         </div>

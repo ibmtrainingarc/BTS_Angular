@@ -20,7 +20,7 @@ export class BugFormComponent implements OnInit {
     },
     error=> {
       console.log(error);
-      alert("error happened")
+      alert("Form is invalid")
     })
   }
 

@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit {
     let bugName = (<HTMLInputElement>document.getElementById('bugName')).value;
     if (bugName) {
       endpointURL = endpointURL + 'name/' + bugName;
-      const promise = this.bugService.getBug(endpointURL);
+      const promise = this.bugService.getBugs(bugName);
       promise.subscribe(response => {
         this.bugList = response;
         console.log(this.bugList);
@@ -46,15 +46,17 @@ export class UpdateComponent implements OnInit {
     }
     let bugId = (<HTMLInputElement>document.getElementById('bugId')).value
     const updatedBody = {
-      bugId: (<HTMLInputElement>document.getElementById('bugId')).value,
       name: (<HTMLInputElement>document.getElementById('bugName')).value,
-      description: (<HTMLInputElement>document.getElementById('desc')).value,
-      priority: (<HTMLInputElement>document.getElementById('Priority')).value,
+      bugId: (<HTMLInputElement>document.getElementById('bugId')).value,
       status: (<HTMLInputElement>document.getElementById('Status')).value,
-      type: (<HTMLInputElement>document.getElementById('Type')).value,
-      projectId: (<HTMLInputElement>document.getElementById('project')).value,
-      module: (<HTMLInputElement>document.getElementById('module')).value,
+      priority: (<HTMLInputElement>document.getElementById('Priority')).value,
+      severity: (<HTMLInputElement>document.getElementById('Severity')).value,
       eta: (<HTMLInputElement>document.getElementById('etadate')).value,
+      module: (<HTMLInputElement>document.getElementById('module')).value,
+      projectId: (<HTMLInputElement>document.getElementById('project')).value,
+      type: (<HTMLInputElement>document.getElementById('Type')).value,
+      description: (<HTMLInputElement>document.getElementById('desc')).value,
+      submittedOn: (<HTMLInputElement>document.getElementById('etadate')).valueAsDate,
     }
 
     this.bugService.updateBug(bugId, updatedBody).subscribe(
