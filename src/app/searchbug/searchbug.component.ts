@@ -13,6 +13,7 @@ export class SearchbugComponent implements OnInit {
   bug:Bug = new Bug();
   bugArray:any;
   bugResult:any;
+  bugList:any;
   constructor(private bugService:BugService ) {}
   getBugs(name:String){
     const observable=this.bugService.getBugByPartialName(name);;
@@ -40,6 +41,26 @@ export class SearchbugComponent implements OnInit {
     });
 
   }
+
+  getBugbyNameStatus() {
+    let status = (<HTMLInputElement>document.getElementById('Status')).value;
+      let name = (<HTMLInputElement>document.getElementById('bugName')).value;
+    const promise = this.bugService.getBugbyStatusAndName(name, status);
+        promise.subscribe(response => {
+        console.log(response);
+          this.bugList = response;
+          if (this.bugList!=0) {
+            this.bugArray = this.bugList;
+          }
+          else {
+            alert("No Bug with Name : " + name + " and Status : " + status + " found");
+            this.bugArray = [];
+          }
+        },
+          error => {
+            alert('error happened..')
+          })
+      }
 
   deleteBug(id:String, index:number){
     let ask = confirm("Please confirm for deletion: " + id);

@@ -17,7 +17,7 @@
         <div class="form-group col-md-2">
           <label for="BugName">SEARCH BUG HERE</label>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
           <select [(ngModel)]='bug.status' name='input2' id="Status" >
             <option selected>Choose...</option>
             <option value="NEW">NEW</option>
@@ -41,12 +41,16 @@
         <div class="form-group col-md-2">
           <button (click)='getStatus(bug.status)' class="btn btn-primary" type="submit">Search by Status</button>
         </div>
-         <div class="form-group col-md-3">
-          <input [(ngModel)]= 'bug.name' name='input1' type="text" placeholder="Enter bug name">
+         <div class="form-group col-md-2">
+          <input [(ngModel)]= 'bug.name' id="bugName" name='input1' type="text" placeholder="Enter bug name">
         </div>
         <div class="form-group col-md-2">
           <button (click)='getBugs(bug.name)' class="btn btn-primary" type="submit">Search by Name</button>
         </div>
+        <div class="form-group col-md-2">
+          <button (click)='getBugbyNameStatus()' class="btn btn-primary" type="submit">Search by name&status</button>
+        </div>
+
 
       </div>
     </form>
@@ -78,7 +82,7 @@
           <td>{{bug.projectId}}</td>
           <td>{{bug.description}}</td>
           <td>{{bug.synopsis}}</td>
-          <td><button (click)='this.deleteBug(bug.id,i)'>X</button></td>
+          <td><button class="but1" (click)='this.deleteBug(bug.id,i)'>Delete</button></td>
         </tr>
 
 

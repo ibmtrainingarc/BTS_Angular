@@ -35,6 +35,15 @@ export class BugService {
     return this.http.get('http://localhost:8080/bug/status/'+status);
   }
 
+  getBugbyStatusAndName(name:string,status:string){
+    return this.http.get('http://localhost:8080/bug/'+'search/'+ name+'?status='+status, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+      });
+  }
+
   updateBug(bugId:any, updatedBody:any) {
     const endpointURL = 'http://localhost:8080/bug/' + bugId;
     return this.http.put(endpointURL, updatedBody);
