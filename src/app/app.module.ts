@@ -11,6 +11,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { UpdateComponent } from './update/update.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { TruncatePipe } from './searchbug/truncate.pipe';
 
 const appRoutes:Routes=[
   {path: 'createBug', component:BugFormComponent},
@@ -30,7 +31,9 @@ const appRoutes:Routes=[
     SearchbugComponent,
     ContactComponent,
     UpdateComponent,
-    HomepageComponent
+    HomepageComponent,
+    TruncatePipe
+
   ],
   imports: [RouterModule.forRoot(
     appRoutes,

@@ -54,7 +54,7 @@
 
       </div>
     </form>
-    <table id="bugger">
+    <table class ="table-responsive" id="bugger">
 
       <th>name</th>
       <th>status</th>
@@ -80,7 +80,7 @@
           <td>{{bug.eta | date: 'd/M/yy'}}</td>
           <td>{{bug.module}}</td>
           <td>{{bug.projectId}}</td>
-          <td>{{bug.description}}</td>
+          <td>{{bug.description|truncate:[20]}}<br><button type="button"  style="margin-top: 10px;" class="btn btn-outline-info btn-sm"(click)=showDescription(bug.description) >Read More</button></td>
           <td>{{bug.synopsis}}</td>
           <td><button class="but1" (click)='this.deleteBug(bug.id,i)'>Delete</button></td>
         </tr>

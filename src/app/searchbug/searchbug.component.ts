@@ -3,6 +3,7 @@ import { Bug } from '../Bug';
 import { BugService } from '../bug.service';
 import { STATUS } from '../STATUS';
 
+
 @Component({
   selector: 'app-searchbug',
   templateUrl: './searchbug.component.html',
@@ -70,6 +71,11 @@ export class SearchbugComponent implements OnInit {
     const observable = this.bugService.delete(id);
     observable.subscribe(response=>{ this.bugArray.splice(index,1);alert("Bug deleted...")})
   }
+
+  showDescription(des: string) {
+    if(des){
+      alert(des)
+  }}
 
 
   ngOnInit(): void {
